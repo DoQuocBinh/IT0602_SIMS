@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Teacher>
+<h1>Hello World Teacher</h1>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Id - @item.Name</li>
+
+    }
+
+</ul>
+<ul>
+    <li>
+        <a asp-controller="Teacher" asp-action="NewTeacher">New Teacher</a>
+    </li>
+</ul>
+
