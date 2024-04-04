@@ -1,0 +1,20 @@
+﻿
+@model User
+<h1 style="color:orange">New Teacher</h1>
+
+@using (Html.BeginForm("Login", "Authentication", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { Class = "control-label" })
+        @Html.TextBoxFor(m => m.UserName,
+            new { placeholder = "User Name", Class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Pass, new { Class = "control-label" })
+        @Html.PasswordFor(m => m.Pass,
+            new { placeholder = "Password", Class = "form-control" })
+    </div>
+    <br />
+    <input type="submit" value="Login" class="btn btn-primary" />
+
+}
