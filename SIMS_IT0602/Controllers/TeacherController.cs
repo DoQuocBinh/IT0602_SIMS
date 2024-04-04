@@ -14,6 +14,26 @@ namespace SIMS_IT0602.Controllers
     {
         static List<Teacher> teachers = new List<Teacher>();
 
+        public IActionResult Delete(int Id)
+        {
+            var teachers = LoadTeacherFromFile("data.json");
+
+            //find teacher in an array
+            var searchTeacher = teachers.FirstOrDefault(t => t.Id == Id);
+            teachers.Remove(searchTeacher);
+
+            //save to file
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(teachers, options);
+            //Save file
+            using (StreamWriter writer = new StreamWriter("data.json"))
+            {
+                writer.Write(jsonString);
+            }
+            return RedirectToAction("Index");
+
+        }
+
         [HttpPost] //submit new Teacher
         public IActionResult NewTeacher(Teacher teacher)
         {
