@@ -14,6 +14,9 @@
         @Html.PasswordFor(m => m.Pass,
             new { placeholder = "Password", Class = "form-control" })
     </div>
+    <div style="color:red">
+        @ViewBag.error
+    </div>
     <br />
     <input type="submit" value="Login" class="btn btn-primary" />
 

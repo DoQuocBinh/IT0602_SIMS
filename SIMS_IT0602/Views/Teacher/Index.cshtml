@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Teacher>
-<h1>Hello World Teacher</h1>
+<h1>Hello World @ViewBag.UserName , you are @ViewBag.Role</h1>
 <ul>
     @foreach (var item in Model)
     {
